@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "@remix-run/react";
-import {Product} from "~/models/Product"; // URL parametrelerini almak için
+import {Product} from "~/models/Product";
 
 export default function ProductDetail() {
-    const { productId } = useParams(); // URL parametresinden ürün ID'sini alıyoruz.
+    const { productId } = useParams();
     const [product, setProduct] = useState<Product | null>(null);
 
     useEffect(() => {
-        // Ürün detaylarını alacak fonksiyon
         const fetchProductDetails = async () => {
             const response = await fetch(`https://mock.akakce.dev/product${productId}.json`);
             const data = await response.json();
@@ -20,7 +19,7 @@ export default function ProductDetail() {
     }, [productId]);
 
     if (!product) {
-        return <div>Loading...</div>; // Eğer ürün yüklenememişse "Yükleniyor..." mesajı gösterilecek.
+        return <div>Loading...</div>;
     }
 
     return (
