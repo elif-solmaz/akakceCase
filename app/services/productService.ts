@@ -1,5 +1,5 @@
 
-import {ProductDetail} from "~/models/ProductDetail";
+import {ProductDetailPage} from "~/models/ProductDetailPage";
 
 import api from "./api";
 import { ApiResponse } from "../models/ApiResponse";
@@ -17,7 +17,7 @@ export const fetchProductList = async (url: string): Promise<ApiResponse> => {
 
 
 // Ürün detay verilerini alır.
-export const fetchProductDetails = async (url: string): Promise<ProductDetail> => {
-    const response = await api.get<ProductDetail>(url);
+export const fetchProductDetails = async (url: string): Promise<ProductDetailPage> => {
+    const response = await api.get<ProductDetailPage>(url);
     return response.data;
 };
